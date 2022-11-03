@@ -100,7 +100,5 @@ class Main {
             arr[number] = rand.nextInt(1000);
         }
         return arr;
-    } 
-          
-        
+    }       
 }
