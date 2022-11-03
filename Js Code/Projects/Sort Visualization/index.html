@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Sort visualization using JavaScript.</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        #listItem {
+            margin-top: 64px;
+            background-color: white;
+            height: 210px;
+            width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .ElementBox {
+            display: inline-block;
+            width: 20px;
+            background-color: #050A30;
+            bottom: 0px;
+        }
+
+        .box_nm {
+            margin-top: -23px;
+            width: 100%;
+            text-align: center;
+            position: absolute;
+            color: black;
+        }
+
+        #btn1 {
+            color: red;
+            font-size: 20px;
+            width: 170px;
+            height: 50px;
+            cursor: pointer;
+        }
+
+        #btn2 {
+            color: blue;
+            font-size: 20px;
+            width: 160px;
+            height: 50px;
+            cursor: pointer;
+        }
+        #btn3 {
+            color: black;
+            font-size: 20px;
+            width: 160px;
+            height: 50px;
+            cursor: pointer;
+        }
+        #btn4 {
+            color: green;
+            font-size: 20px;
+            width: 160px;
+            height: 50px;
+            cursor: pointer;
+        }
+
+        .nums {
+            margin: 10px;
+            width: 40px;
+            height: 25px;
+        }
+    </style>
+</head>
+
+<body>
+    <br />
+    <h2 style="text-align:center">Sort Visualization</h2>
+    <div id="listItem"></div>
+
+    <br /><br />
+
+    <div style="text-align: center">
+        <div>Fill all fields with numbers 1-100</div>
+        <div style="display: block;">
+            <input type="number" id="num1" class="nums" value="93">
+            <input type="number" id="num2" class="nums" value="24">
+            <input type="number" id="num3" class="nums" value="74">
+            <input type="number" id="num4" class="nums" value="23">
+            <input type="number" id="num5" class="nums" value="3">
+            <input type="number" id="num6" class="nums" value="5">
+            <input type="number" id="num7" class="nums" value="74">
+            <input type="number" id="num8" class="nums" value="34">
+            <input type="number" id="num9" class="nums" value="88">
+            <input type="number" id="num10" class="nums" value="54">
+            <input type="number" id="num11" class="nums" value="33">
+            <input type="number" id="num12" class="nums" value="46">
+
+        </div>
+        <button id="btn1" onclick="arrayDisplay()">Display Array </button>
+        <button id="btn2" onclick="InsertionSort()">Insertion Sort</button>
+        <button id="btn3" onclick="SelectionSort()">Selection Sort</button>
+
+        <br /><br />
+
+        <h2 id="writeHere"></h2>
+    </div>
+
+    <script>
+        const list = [];
+        let hasRun = false;
+        let numElements = 12;
+        let delay = 2000;
+        // display initial array with random values
+        function arrayDisplay() {
+            if (hasRun == true) {
+                window.location.reload();
+            } else {
+                hasRun = true;
+            }
+
+
+            let ItemBox = document.getElementById("listItem");
+            for (let i = 0; i < numElements; i++) {
+                list.push(parseInt(document.getElementById("num" + (i + 1)).value));
+            }
+            for (let i = 0; i < numElements; i++) {
+                let currItem = list[i],
+                    element = document.createElement("div");
+                element.classList.add("ElementBox");
+                element.style.height = `${currItem * 2}px`;
+                element.style.transform = `translate(${i * 30}px)`;
+                let eleUsingLabel = document.createElement("label");
+                eleUsingLabel.classList.add("box_nm");
+                eleUsingLabel.textContent = currItem;
+                eleUsingLabel.setAttribute("style", "font-weight: bold;")
+                element.appendChild(eleUsingLabel);
+                ItemBox.appendChild(element);
+            }
+        }
+
+        async function Createtimeout(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+        // insertion sort function
+        const InsertionSortFunction = async () => {
+            let ElementBox = document.querySelectorAll(".ElementBox");
+            ElementBox[0].style.backgroundColor = "#32CD30"
+            let ItemBox = document.getElementById("listItem");
+            for (let i = 1; i < numElements; i++) {
+                ElementBox[i].style.backgroundColor = "red";
+                await Createtimeout(delay);
+                let ElementLabel = parseInt(ElementBox[i].childNodes[0].innerHTML);
+                let h = ElementBox[i].style.height;
+                let j = i - 1;
+                while ((j >= 0) && parseInt(ElementBox[j].childNodes[0].innerHTML) > ElementLabel) {
+                    ElementBox[j].style.backgroundColor = "red";
+                    ElementBox[j + 1].style.height = ElementBox[j].style.height;
+                    ElementBox[j + 1].childNodes[0].innerText =
+                    ElementBox[j].childNodes[0].innerText;
+
+                    //list[j+1] = list[j];
+                    j--;
+                    Createtimeout(delay);
+                    let colorIndex = i;
+
+
+                    while (colorIndex >= 0) {
+                        ElementBox[colorIndex].style.backgroundColor = "orange";
+                        colorIndex--;
+                    }
+                }
+                ElementBox[j + 1].style.height = h;
+                ElementBox[j + 1].childNodes[0].innerHTML = ElementLabel;
+                Createtimeout(delay);
+                ElementBox[j+1].style.backgroundColor = "#32CD30"
+
+            }
+            for (let i = 0; i <ElementBox.length; i++){
+                if (ElementBox[i].style.backgroundColor != "orange"){
+                    ElementBox[i].style.backgroundColor = "orange"
+                }
+            }
+        }
+
+
+        /*
+        function selectionSort(inputArr) { 
+            let n = inputArr.length;
+                
+            for(let i = 0; i < n; i++) {
+                // Finding the smallest number in the subarray
+                let min = i;
+                for(let j = i+1; j < n; j++){
+                    if(inputArr[j] < inputArr[min]) {
+                        min=j; 
+                    }
+                }
+                if (min != i) {
+                    // Swapping the elements
+                    let tmp = inputArr[i]; 
+                    inputArr[i] = inputArr[min];
+                    inputArr[min] = tmp;      
+                }
+            }
+            return inputArr;
+        }
+
+        */
+        const SelectionSortFunction = async () => {
+            let ElementBox = document.querySelectorAll(".ElementBox")
+            ElementBox[0].style.backgroundColor = "#32CD30"
+            let ItemBox = document.getElementById("listItem");
+            let n = ElementBox.length;
+            for(let i = 0; i < n; i++){
+                ElementBox[i].style.backgroundColor = "red";
+                await Createtimeout(delay)
+                let ElementLabel = parseInt(ElementBox[i].childNodes[0].innerHTML);
+                let min = i;
+                for (let j = i + 1; j < n; j++){
+                    if(parseInt(ElementBox[j].innerText) < parseInt(ElementBox[min].innerText)){
+                        min = j;
+                    }
+                    let colorIndex = i;
+
+                    while (colorIndex >= 0) {
+                            ElementBox[colorIndex].style.backgroundColor = "orange";
+                            colorIndex--;
+                    }
+                }
+                Createtimeout(delay)
+                if (min != i) {
+                    let tmp  = ElementBox[i].childNodes[0].innerText;
+                    let tmpheight = ElementBox[i].style.height;
+                    ElementBox[i].childNodes[0].innerText = ElementBox[min].childNodes[0].innerText;
+                    ElementBox[i].style.height = ElementBox[min].style.height;
+                    ElementBox[min].childNodes[0].innerText = tmp;
+                    ElementBox[min].style.height = tmpheight;
+                }
+
+                ElementBox[min].childNodes[0].innerHTML = ElementLabel;
+                ElementBox[i].style.backgroundColor = "#32CD30"
+                Createtimeout(delay)
+            }
+            
+            for (let i = 0; i < ElementBox.length; i++){
+                if (ElementBox[i].style.backgroundColor != "orange"){
+                    ElementBox[i].style.backgroundColor = "orange`"
+                }
+            }
+            
+        }   
+        
+        const SelectionSort = async () => {
+            await SelectionSortFunction()
+        }
+        
+        
+        const InsertionSort = async () => {
+            await InsertionSortFunction()
+        }
+
+
+    </script>
+</body>
+
+</html>
