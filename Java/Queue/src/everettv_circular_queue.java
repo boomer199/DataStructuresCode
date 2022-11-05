@@ -4,11 +4,7 @@ import java.util.ArrayList;
 
 // pretty much a normal queue but the head pointer can shift once dequeue is called
 public class everettv_circular_queue {
-
-    
     private int size, front, rear; //Variable declaration
-    
-    
     private ArrayList<Integer> circular_queue = new ArrayList<Integer>(); //Declaring Integer array list
     
     everettv_circular_queue(int queue_size){
@@ -16,65 +12,46 @@ public class everettv_circular_queue {
         this.front = this.rear = -1;
     }
     
-    public void enQueue(int queue_data) //Insertion Function
-    {
-        if((front == 0 && rear == size - 1) ||
-        (rear == (front - 1) % (size - 1))) // Condition if queue is full
-        {
-            System.out.print("Queue Full!");
+    public void enQueue(int queue_data) {
+        if((front == 0 && rear == size - 1) || (rear == (front - 1) % (size - 1))) { // queue is full condition
+            System.out.print("Queue is full");
         }
     
-        else if(front == -1) // Condition for empty queue.
-        {
+        else if(front == -1) { // queue is empty
             front = 0;
             rear = 0;
             circular_queue.add(rear, queue_data);
         }
-        else if(rear == size - 1 && front != 0)
-        {
+        else if(rear == size - 1 && front != 0) {
             rear = 0;
             circular_queue.set(rear, queue_data);
-        }
-        else
-        {
+        } else { 
             rear = (rear + 1);
             // Adding a new element if
-            if(front <= rear)
-            {
+            if(front <= rear) { // adds new element if front <= rear 
                 circular_queue.add(rear, queue_data);
-            }
-            // Else updating old value
-            else
-            {
+            } else {
                 circular_queue.set(rear, queue_data);
             }
         }
     }
     
-    public int deQueue() //Dequeue Function
-    {
+    public int deQueue() {
         int temp;
     
-        if(front == -1) //Checking for empty queue
-        {
+        if(front == -1) { // check if empty
             System.out.print("Queue Empty!");
             return -1;
         }
     
-        temp = circular_queue.get(front);
+        temp = circular_queue.get(front); // it is an arraylist that I am ujsing, so this works, if it was a linkedList I could not do this
     
-        if(front == rear) // For only one element
-        {
+        if(front == rear) { // 1 element queue?
             front = -1;
             rear = -1;
-        }
-    
-        else if(front == size - 1)
-        {
+        } else if (front == size - 1) {
             front = 0;
-        }
-        else
-        {
+        } else {
             front = front + 1;
         }
         return temp; // Returns dequeued element
@@ -94,18 +71,13 @@ public class everettv_circular_queue {
         System.out.println("********************************PRINTED CIRCULAR-QUEUE********************************");
 
     
-        if(rear >= front) //if rear has not crossed the size limit 
-        {
-            for(int i = front; i <= rear; i++) //print elements using loop
-            {
+        if(rear >= front) { //if rear has not crossed the size limit 
+            for(int i = front; i <= rear; i++) {
                 System.out.print(circular_queue.get(i));
                 System.out.print(" ");
             }
             System.out.println();
-        }
-    
-        else
-        {
+        } else {
             for(int i = front; i < size; i++)
             {
                 System.out.print(circular_queue.get(i));
@@ -128,7 +100,7 @@ public class everettv_circular_queue {
         Scanner sc= new Scanner(System.in);
         int queueLength=sc.nextInt() +1;
         int[] arr = randNums(queueLength);
-        everettv_circular_queue queue = new everettv_circular_queue(queueLength); // Initialising new object of CircularQueue class.
+        everettv_circular_queue queue = new everettv_circular_queue(queueLength); // Initialising new object of my circularqueue class.
         for(int i = 0; i < queueLength-1; i++){
             queue.enQueue(arr[i]);
         }
