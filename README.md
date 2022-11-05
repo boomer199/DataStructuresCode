@@ -1,6 +1,6 @@
 # DataStructuresCode
 ***
-** All code for my Data Structures class gets uploaded here. **
+**All code for my Data Structures class gets uploaded here**
 
 > The repository contains many different projects that have to be run seperately from one another. 
 > This is just a conglomeration of many projects. 
