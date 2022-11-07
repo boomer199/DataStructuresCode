@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.io.Console;
 import java.util.*;
 
 
@@ -13,7 +14,7 @@ class Queue {
     public Queue(int capacity) {
         this.capacity = capacity;
         head = this.size = 0;
-        rear = capacity -1;
+        rear = 0;
         queueArr = new int[this.capacity];
     }
 
@@ -26,8 +27,8 @@ class Queue {
     }
 
     public void enqueue(int val) {
-        if (isFull(this))  { return; }
-        this.rear = (this.rear + 1) % this.capacity;
+        if (isFull(this)){ return; }
+        this.rear = (this.rear + 1); 
         this.queueArr[this.rear] = val;
         this.size = this.size + 1;
         System.out.println(val + " added to queue");
@@ -36,7 +37,7 @@ class Queue {
     public int dequeue() {
         if (isEmpty(this)) { return Integer.MIN_VALUE;} 
         int item = this.queueArr[this.head];
-        this.head = (this.head + 1) % this.capacity;
+        this.head = this.head + 1;
         this.size = this.size - 1;
         return item;
     }
@@ -88,8 +89,8 @@ class Main {
         queue.dequeue();
         queue.dequeue();
         queue.dequeue();
-        queue.dequeue();
-        queue.dequeue();
+        //queue.dequeue();
+        //queue.dequeue();
 
         queue.printQueue();
     }

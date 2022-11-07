@@ -3,7 +3,7 @@ Note: All files can be run seperately as they all have their own main method, ev
 
 ANSWERS TO THEORY QUESTIONS
 
-1. x, y, x
+1. x, y, z
 
 2. z, y, x
 
@@ -15,16 +15,17 @@ ANSWERS TO THEORY QUESTIONS
 3. myQueue.enqueue("Jim"); --> Adds "Jim" to queue
 3. String name = myQueue.dequeue(); --> Makes a variable called name with the value "Jess" and removes "Jess" from queue
 3. myQueue.enqueue(myQueue.getFront()); --> Adds "Jill" to back of queue
+3. FINAL ANSWER: "Jill" "Jane" "Jess" "Jim"  "Jill"
 
 4. myDeque.addToFront("Jim"); --> "Jim"
-4. myDeque.addToFront("Jess"); --> "Jim" "Jess"
-4. myDeque.addToBack("Jill"); --> "Jim" "Jess" "Jill"
-4. myDeque.addToBack("Jane"); --> "Jim" "Jess" "Jill" "Jane"
-4. String name = myDeque.removeFront(); --> "Jess" "Jill" "Jane" 
-4. myDeque.addToBack(name); -->  "Jess" "Jill" "Jane" "Jim"
-4. myDeque.addToBack(myDeque.getFront()); -->  "Jess" "Jill" "Jane" "Jim" "Jess"
-4. myDeque.addToFront(myDeque.removeBack()); --> "Jess" "Jess" "Jill" "Jane" "Jim"
-4. myDeque.addToFront(myDeque.getBack()); --> "Jim" "Jess" "Jess" "Jill" "Jane" "Jim"
+4. myDeque.addToFront("Jess"); --> "Jess" "Jim" 
+4. myDeque.addToBack("Jill"); --> "Jess" "Jim" "Jill"
+4. myDeque.addToBack("Jane"); --> "Jess" "Jim" "Jill" "Jane"
+4. String name = myDeque.removeFront(); --> "Jim" "Jill" "Jane"
+4. myDeque.addToBack(name); -->  "Jim" "Jill" "Jane" "Jess"
+4. myDeque.addToBack(myDeque.getFront()); --> "Jim" "Jill" "Jane" "Jess" "Jim"
+4. myDeque.addToFront(myDeque.removeBack()); --> "Jim" "Jim" "Jill" "Jane" "Jess" 
+4. myDeque.addToFront(myDeque.getBack()); --> "Jess" "Jim" "Jim" "Jill" "Jane" "Jess" 
 
 5. myPriorityQueue.add("Jim"); --> "Jim"
 5. myPriorityQueue.add("Jess"); --> "Jim" "Jess"

@@ -10,6 +10,8 @@
 ***
 ### JS Folder:
 > Contains all projects that I completed in Javascript.
+>
+
 `Most projects have been completed in Java, these are mainly a few things I did over the summer.`
 ***
 *I ask that you please do not copy any of the code in here if you are in my Data Structures class.*
