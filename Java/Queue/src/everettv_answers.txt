@@ -31,11 +31,11 @@ ANSWERS TO THEORY QUESTIONS
 5. myPriorityQueue.add("Jess"); --> "Jim" "Jess"
 5. myPriorityQueue.add("Jill"); --> "Jim" "Jess" "Jill"
 5. myPriorityQueue.add("Jane"); --> "Jim" "Jess" "Jill" "Jane"
-5. String name = myPriorityQueue.remove(); --> "Jess" "Jill" "Jane"      // Techinically Code errors here as .remove takes a parameter of the object/string/int that will be removed
-5. myPriorityQueue.add(name); --> "Jess" "Jill" "Jane" "Jim"
-5. myPriorityQueue.add(myPriorityQueue.peek()); --> "Jess" "Jill" "Jane" "Jim" "Jess"
-5. myPriorityQueue.add("Jim"); --> "Jess" "Jill" "Jane" "Jim" "Jess" "Jim"
-5. myPriorityQueue.remove(); --> "Jill" "Jane" "Jim" "Jess" "Jim"       // Techinically Code errors here as .remove takes a parameter of the object/string/int that will be removed
+5. String name = myPriorityQueue.remove(); --> "Jim" "Jess" "Jill" 
+5. myPriorityQueue.add(name); --> "Jane" "Jim" "Jess" "Jill" 
+5. myPriorityQueue.add(myPriorityQueue.peek()); --> "Jane" "Jane" "Jim" "Jess" "Jill" 
+5. myPriorityQueue.add("Jim"); --> "Jane" "Jane" "Jim" "Jess" "Jill" "Jim"
+5. myPriorityQueue.remove(); --> "Jane" "Jim" "Jess" "Jill" "Jim" 
 
 6. Consider strings that can be split so that their first half is the same as their second half (ignoring blanks, punctuation, and case).
 6. File is called everettv_q6.java
