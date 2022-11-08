@@ -1,5 +1,4 @@
 import java.util.Scanner;
-import java.io.Console;
 import java.util.*;
 
 
@@ -75,7 +74,7 @@ class Queue {
 class Main {
     public static void main (String args[]){
         System.out.println("How Many Terms Would You Like Added To The Queue:");
-        Scanner sc= new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         int queueLength=sc.nextInt() +1;
         int[] arr = randNums(queueLength);
         Queue queue = new Queue(queueLength);

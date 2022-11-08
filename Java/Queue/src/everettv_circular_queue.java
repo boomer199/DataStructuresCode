@@ -97,7 +97,7 @@ public class everettv_circular_queue {
     {
 
         System.out.println("How Many Terms Would You Like Added To The CircularQueue:");
-        Scanner sc= new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         int queueLength=sc.nextInt() +1;
         int[] arr = randNums(queueLength);
         everettv_circular_queue queue = new everettv_circular_queue(queueLength); // Initialising new object of my circularqueue class.

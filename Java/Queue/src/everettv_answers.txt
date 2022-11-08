@@ -32,10 +32,10 @@ ANSWERS TO THEORY QUESTIONS
 5. myPriorityQueue.add("Jill"); --> "Jim" "Jess" "Jill"
 5. myPriorityQueue.add("Jane"); --> "Jim" "Jess" "Jill" "Jane"
 5. String name = myPriorityQueue.remove(); --> "Jim" "Jess" "Jill" 
-5. myPriorityQueue.add(name); --> "Jane" "Jim" "Jess" "Jill" 
-5. myPriorityQueue.add(myPriorityQueue.peek()); --> "Jane" "Jane" "Jim" "Jess" "Jill" 
-5. myPriorityQueue.add("Jim"); --> "Jane" "Jane" "Jim" "Jess" "Jill" "Jim"
-5. myPriorityQueue.remove(); --> "Jane" "Jim" "Jess" "Jill" "Jim" 
+5. myPriorityQueue.add(name); --> "Jim" "Jess" "Jill" "Jane"
+5. myPriorityQueue.add(myPriorityQueue.peek()); --> "Jim" "Jess" "Jill" "Jane" "Jim"
+5. myPriorityQueue.add("Jim"); --> "Jim" "Jess" "Jill" "Jane" "Jim" "Jim"
+5. myPriorityQueue.remove(); --> "Jim" "Jess" "Jill" "Jim" "Jim"
 
 6. Consider strings that can be split so that their first half is the same as their second half (ignoring blanks, punctuation, and case).
 6. File is called everettv_q6.java
