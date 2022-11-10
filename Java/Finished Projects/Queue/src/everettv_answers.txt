@@ -38,4 +38,8 @@ ANSWERS TO THEORY QUESTIONS
 5. myPriorityQueue.remove(); --> "Jim" "Jess" "Jill" "Jim" "Jim"
 
 6. Consider strings that can be split so that their first half is the same as their second half (ignoring blanks, punctuation, and case).
-6. File is called everettv_q6.java
+6. 
+6. Step 1: Get rid of commas and spaces and ignore them
+6. Step 2: Split array in half and put characters into seperate queues
+6. Step 3: Dequeue same position in queue from both queues and compare them
+6. Step 4: Repeat step 3 until done, return false if not equal
