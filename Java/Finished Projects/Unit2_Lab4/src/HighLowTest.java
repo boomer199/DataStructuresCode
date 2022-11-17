@@ -4,8 +4,7 @@
 
 public class HighLowTest
 {
-   public static void main(String[] args)
-   {
+   public static void main(String[] args) throws Exception {
       // Create an array of Integer values.
       Integer[] numbers = { new Integer(44),
                             new Integer(77),
