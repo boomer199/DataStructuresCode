@@ -17,10 +17,22 @@ public class HighLowTest
                             new Integer(11),
                             new Integer(22)
                           };
-      
+      // 2d array!!!
+      Integer[][] numbers2 = { {new Integer(44),
+                                new Integer(100),
+                                new Integer(77)},
+                               {new Integer(11),
+                                new Integer(99),
+                                new Integer(55)},
+                               {new Integer(55),
+                                new Integer(11),
+                                new Integer(22)},
+                             };
+
+
       // Create a HighLow object.
       HighLow<Integer> highLow = new HighLow<>(numbers);
-      
+
       // Display the highest value in the array.
       System.out.println("");
       System.out.println("The highest value is " + highLow.getHighest());
@@ -31,6 +43,11 @@ public class HighLowTest
       System.out.println("");
       System.out.println("The lowest value is " + highLow.getLowest());
       System.out.println("");
+
+      System.out.println("");
+      System.out.println("The highest value in the 2d array is (numbers2): " + highLow.max(numbers2));
+      System.out.println("");
+
 
       // Removes Duplicates in the arraylist
       System.out.println("");

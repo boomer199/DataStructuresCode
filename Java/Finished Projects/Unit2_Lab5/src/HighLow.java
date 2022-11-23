@@ -1,6 +1,4 @@
-/**
-   HighLow class
-*/
+/* HighLow class */
 import java.util.*;
 
 public class HighLow<T extends Comparable<T>>{
@@ -115,6 +113,25 @@ public class HighLow<T extends Comparable<T>>{
       }
    }
 
+    /**
+     * Finds max value in 2d array
+     * @param list 2d array being passed in!!
+     * @param <T> Generic
+     * @return maxvalue in 2d array
+     */
+    public static <T extends Comparable<T>> T max(T[][] list){
+        T max = list[0][0];
+        for(int i=0; i<list.length; i++){
+            for(int j = 0; j < list[i].length; j++){
+
+                if(max.compareTo(list[i][j]) == -1){
+
+                    max= list[i][j];
+                }
+            }
+        }
+        return max;
+    }
 
    public static <T extends Comparable<T>> int linearSearch(T[] list, T key){
       for(int i = 0; i < list.length; i++) {
@@ -125,7 +142,6 @@ public class HighLow<T extends Comparable<T>>{
        return -1;
    }
 
-   
    public static <T extends Comparable<T>> int binarySearch(T[] list, int l, int r, T key) {
       if (r>=l) {
             Arrays.sort(list);
