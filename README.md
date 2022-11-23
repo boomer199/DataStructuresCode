@@ -4,6 +4,8 @@
 
 > The repository contains many different projects that have to be run seperately from one another. 
 > This is just a conglomeration of many projects. 
+
+> NOTE: EVERYTHING MAY NOT WORK, also everything is a little scuffed because of how I originally formatted this repo.
 ***
 ### Java folder:
 > Contains all projects that I completed in Java.
