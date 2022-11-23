@@ -27,7 +27,7 @@ public class HighLow<T extends Comparable<T>>{
    public T getHighest(){
       T maxValue = array.get(0);
       for(int i = 0; i < array.size(); i++){
-         if((int) array.get(i) > (int) maxValue){
+         if(array.get(i).compareTo(maxValue) == 1){
             maxValue = array.get(i);
          }
       }
@@ -41,7 +41,7 @@ public class HighLow<T extends Comparable<T>>{
    public T getLowest(){
       T minValue = array.get(0);
       for(int i = 0; i < array.size(); i++){
-         if((int) array.get(i) < (int) minValue){
+         if(array.get(i).compareTo(minValue) == -1){
             minValue = array.get(i);
          }
       }
