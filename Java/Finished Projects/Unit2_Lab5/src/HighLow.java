@@ -116,6 +116,16 @@ public class HighLow<T extends Comparable<T>>{
    }
 
 
+   public static <T extends Comparable<T>> int linearSearch(T[] list, T key){
+      for(int i = 0; i < list.length; i++) {
+         if (list[i].compareTo(key) == 0) {
+             return i;
+         }
+      }
+       return -1;
+   }
+
+   
    public static <T extends Comparable<T>> int binarySearch(T[] list, int l, int r, T key) {
       if (r>=l) {
             Arrays.sort(list);

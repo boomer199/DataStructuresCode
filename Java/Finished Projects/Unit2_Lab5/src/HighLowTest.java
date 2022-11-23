@@ -58,6 +58,20 @@ public class HighLowTest
       highLow.shuffle(highLow.getArray());
 
 
+      System.out.println("");
+      System.out.println("");
+      System.out.println("LINEAR SEARCH TO SEE IF A VALUE IS IN THE ARRAY: ");
+      int c = 22;
+      if(highLow.linearSearch(numbers, 22) != -1){
+         System.out.println("");
+         System.out.println("");
+         System.out.println(c + " is in the array");
+         System.out.println("");
+      } else {
+         System.out.println("");
+         System.out.println(c + " is not in the array");
+      }
+
       //Declaring variables for binary search
       int r = numbers.length;
       int y = 22; // NUM TO CHECK IF IN ARRAY OR NOT
