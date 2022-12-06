@@ -3,7 +3,7 @@ import java.util.*;
 
 public class HighLow<T extends Comparable<T>>{
    private ArrayList<T> array = new ArrayList<T>();
-   
+
    /**
       Constructor
       @param values An array of values.
@@ -15,7 +15,7 @@ public class HighLow<T extends Comparable<T>>{
          throw new Exception("IllegalArgumentException");
       } 
       for (int i = 0; i < values.length; i++){
-         array.add(values[i]);
+         array.add(values[i]); 
       }
    }
    /**
@@ -25,7 +25,7 @@ public class HighLow<T extends Comparable<T>>{
    public T getHighest(){
       T maxValue = array.get(0);
       for(int i = 0; i < array.size(); i++){
-         if(array.get(i).compareTo(maxValue)== 1){
+         if(array.get(i).compareTo(maxValue)== 1){ 
             maxValue = array.get(i);
          }
       }
@@ -133,6 +133,7 @@ public class HighLow<T extends Comparable<T>>{
         return max;
     }
 
+    
    public static <T extends Comparable<T>> int linearSearch(T[] list, T key){
       for(int i = 0; i < list.length; i++) {
          if (list[i].compareTo(key) == 0) {
