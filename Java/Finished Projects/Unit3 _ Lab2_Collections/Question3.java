@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Remove {
+public class Question3 {
     public static int removeElements(List<String> a, List<String> b) {
         int count = 0;
         List<String> removedElements = new ArrayList<>();
