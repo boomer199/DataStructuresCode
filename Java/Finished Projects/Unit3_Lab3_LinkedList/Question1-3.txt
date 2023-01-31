@@ -1,0 +1,26 @@
+1. 
+    1) n.addLast(t);
+    2) n.addFirst(s);
+    3) t = n.get(0); OR t = s.getFirst();
+    4) s = n.remove(n.size() - 1); OR s = n.removeLast();
+
+2. 
+    1) n = 4;
+    2) numbers = [3, 5, 7];
+    3) numbers = [3, 4, 7];
+    4) false
+    5) numbers = [3, 4, 2, 7];
+
+3. ["F", "E", "X", "D"] 
+
+4. See Question4.java
+
+5. See Question5 folder
+
+6. See Question6 folder
+
+7. See Question7 folder
+
+8. See Question8 folder
+
+9. See Question9.java
