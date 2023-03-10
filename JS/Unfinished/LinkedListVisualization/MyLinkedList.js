@@ -82,6 +82,44 @@ class MyLinkedList{
     isEmpty(){
         return this.size == 0; 
     }
+
+    contains(i){
+        let current = this.head; 
+        for (let j = 0; j < this.size; j++) {
+            if(current.data == i){
+                return true;
+            }
+            current = current.next;
+        }
+        return false; 
+    }
+
+    reverse(){
+        let r = []; 
+        let current = this.head; 
+        for (let j = 0; j < this.size; j++) {
+            r.push(current.data)
+            current = current.next;
+
+        }
+        r.reverse()
+        return r; 
+    }
+
+    printList(){
+        let r = []; 
+        let current = this.head; 
+        for (let j = 0; j < this.size; j++) {
+            r.push(current.data)
+            current = current.next;
+
+        }
+        console.log(r)
+    }
+
+    insertAt(element, index){
+
+    }
 }
 
 class Node {
@@ -94,8 +132,16 @@ class Node {
 array = [12, "27", 3, "ghello", 237.2]
 ll = new MyLinkedList(array)
 
+console.log(ll.reverse())
+ll.printList()
+
+
+
+console.log(ll.contains(12))
+
 console.log(ll.getFirst())
 ll.removeFirst()
 console.log(ll.getFirst())
 ll.removeLast()
 console.log(ll.getLast())
+
