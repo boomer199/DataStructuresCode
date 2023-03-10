@@ -117,8 +117,76 @@ class MyLinkedList{
         console.log(r)
     }
 
-    insertAt(element, index){
+    getNodeFromIndex(i){
+        let current = this.head; 
+        for (let j = 0; j < this.size; j++) {
+            if(i == j){
+                return current;
+            }
+            current = current.next;
+        }
+    }
 
+    
+
+    insertAt(element, prevNode){
+        if (prevNode == null)
+        {
+            System.out.println("The given previous node cannot be null");
+            return;
+        }
+  
+        /* 2 & 3: Allocate the Node &
+                  Put in the data*/
+        let node = new Node();
+        node.data = element
+  
+        /* 4. Make next of new Node as next of prev_node */
+        node.next = prevNode.next;
+  
+        /* 5. make next of prev_node as new_node */
+        prevNode.next = node;
+        this.size++;
+    }
+
+    removesfrom(index){
+     
+    // If linked list is empty
+    if (this.head == null)
+        return;
+     
+    // Store head node
+    var temp = this.head;
+     
+    // If head needs to be removed
+    if (index == 0)
+    {
+         
+        // Change head
+        this.head = temp.next;
+        return;
+    }
+     
+    // Find previous node of the node to be deleted
+    for(let i = 0; temp != null && i < index - 1; i++)
+        temp = temp.next;
+     
+    // If index is more than number of nodes
+    if (temp == null || temp.next == null)
+    return;
+     
+    // Node temp->next is the node to be deleted
+    // Store pointer to the next of node to be deleted
+    var next = temp.next.next;
+     
+    // Unlink the deleted node from list
+    temp.next = next;
+    this.size--;
+
+    }
+
+    size(){
+        return this.size;
     }
 }
 
@@ -129,12 +197,20 @@ class Node {
     }
   }
 
+
+
+// FIXME: LOGIC!!!
+
 array = [12, "27", 3, "ghello", 237.2]
 ll = new MyLinkedList(array)
 
-console.log(ll.reverse())
 ll.printList()
 
+ll.insertAt(4, ll.getNodeFromIndex(2))
+ll.printList()
+
+ll.removesfrom(3)
+ll.printList()
 
 
 console.log(ll.contains(12))
