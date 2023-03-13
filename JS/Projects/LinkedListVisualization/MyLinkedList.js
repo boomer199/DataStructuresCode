@@ -1,12 +1,9 @@
 class MyLinkedList{
     size = 0; 
-    
-    constuctor(){
+
+    constructor(array = []){
         this.head = null; 
         this.tail = this.head;
-    }
-
-    constructor(array){
         for(let i = 0; i < array.length; i++){
             this.addLast(array[i])
         }
@@ -15,7 +12,7 @@ class MyLinkedList{
     addFirst(num){
         let node = new Node(num)
         if(this.isEmpty()){
-            this.head = this.tail = node;
+            this.head = this.tail = noarde;
         } else {
             node.next = this.head; 
             this.head = node; 
@@ -132,7 +129,7 @@ class MyLinkedList{
     insertAt(element, prevNode){
         if (prevNode == null)
         {
-            System.out.println("The given previous node cannot be null");
+            console.log("The given previous node cannot be null");
             return;
         }
   
@@ -161,7 +158,6 @@ class MyLinkedList{
     // If head needs to be removed
     if (index == 0)
     {
-         
         // Change head
         this.head = temp.next;
         return;
@@ -182,11 +178,35 @@ class MyLinkedList{
     // Unlink the deleted node from list
     temp.next = next;
     this.size--;
-
     }
 
     size(){
         return this.size;
+    }
+
+    toString(){
+        let r = [];
+        let current = this.head; 
+        console.log(current)
+        r.push(current.data)
+        current = current.next
+        for (let j = 1; j < this.size; j++) {
+            r.push(" ---> "+ current.data)
+
+            current = current.next;
+        }
+       return r;
+    }
+
+    search(val){ 
+        let current = this.head; 
+        for (let j = 0; j < this.size; j++) {
+            if(val == current.data){
+                return true;
+            }
+            current = current.next;
+        }
+        return false;
     }
 }
 
@@ -197,27 +217,4 @@ class Node {
     }
   }
 
-
-
-// FIXME: LOGIC!!!
-
-array = [12, "27", 3, "ghello", 237.2]
-ll = new MyLinkedList(array)
-
-ll.printList()
-
-ll.insertAt(4, ll.getNodeFromIndex(2))
-ll.printList()
-
-ll.removesfrom(3)
-ll.printList()
-
-
-console.log(ll.contains(12))
-
-console.log(ll.getFirst())
-ll.removeFirst()
-console.log(ll.getFirst())
-ll.removeLast()
-console.log(ll.getLast())
 
