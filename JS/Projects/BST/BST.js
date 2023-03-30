@@ -147,10 +147,7 @@ removeNode(node, key)
             console.log(node.data);
         }
     }
-
-
-
-
+    
     getRootNode() {
         return this.root;
     }
