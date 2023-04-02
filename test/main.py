@@ -1,7 +1,6 @@
 import requests
 import json
 
-
 def write_json(new_data, filename='data.json'):
     with open(filename,'r+') as file:
           # First we load existing data into a dict.
@@ -54,19 +53,22 @@ if len(response) < 1:
 
 last_event = response[0]["Event"]
 
+# TODO: Make system to remove dupes in data.json
 
-# FIXME: HORRID LOGIC NEED TO FIX!
-i = 0
-holder = ["", "", ""]
-for rank in response:
-  while i <= 2:
-    if(holder[i].__contains__(rank['Event'])):
-      continue
-    elif rank['Event'] == "800 Meters" or rank['Event'] == "1600 Meters" or rank['Event'] == "3200 Meters":
-      newData = {"name: ": name.lower(), "school: ": school, "year: ": year, "event: ": rank['Event'], "time: ": convert_ms(rank["SortInt"])}
-      write_json(newData, "data.json")
-      holder.pop(i)
-      holder.insert(i, rank['Event'])
-      i += 1
-    elif i != -1:
-      continue
+contains = []
+
+for rank in response:  
+  print(contains)
+  if rank['Event'] == "800 Meters" and contains.__contains__("800 Meters") == False:
+    newData = {"name: ": name.lower(), "school: ": school, "year: ": year, "event: ": rank['Event'], "time: ": convert_ms(rank["SortInt"])}
+    write_json(newData, "data.json")
+    contains.append(rank["Event"])
+  if rank['Event'] == "1600 Meters" and contains.__contains__("1600 Meters") == False:
+    newData = {"name: ": name.lower(), "school: ": school, "year: ": year, "event: ": rank['Event'], "time: ": convert_ms(rank["SortInt"])}
+    write_json(newData, "data.json")
+    contains.append(rank["Event"])
+  if rank['Event'] == "3200 Meters" and contains.__contains__("3200 Meters") == False:
+    newData = {"name: ": name.lower(), "school: ": school, "year: ": year, "event: ": rank['Event'], "time: ": convert_ms(rank["SortInt"])}
+    write_json(newData, "data.json")
+    contains.append(rank["Event"])
+
