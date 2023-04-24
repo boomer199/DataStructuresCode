@@ -194,34 +194,119 @@ removeNode(node, key)
         }
     }
 
+    getNumberOfLeaves() {
+        let count = 0;
 
-}
+        function countLeaves(node) {
+            if (node === null) {
+                return;
+            }
+            if (node.left === null && node.right === null) {
+                count++;
+            }
+            countLeaves(node.left);
+            countLeaves(node.right);
+        }
+        countLeaves(this.root);
+        return count;
+    }
+
+
+    getNumberofNonLeaves(){
+        let count = 0;
+
+        function countNonLeaves(node) {
+            if (node === null) {
+                return;
+            }
+            if (node.left !== null || node.right !== null) {
+                count++;
+            }
+            countNonLeaves(node.left);
+            countNonLeaves(node.right);
+        }
+        countNonLeaves(this.root);
+        return count;
+    }
+
+    getParentOfNode(node, data) {
+        if(node == null){
+            return; 
+        }
+        if ((node.left != null && node.left.data == data) || (node.right != null && node.right.data == data)) {
+            return node.data;
+        }
+        if (node.left) {
+            return this.getParentOfNode(node.left, data);
+        }
+        if (node.right) {
+            return this.getParentOfNode(node.right, data);
+        }
+
+    }
+
+    getSize(){
+        let count = 0;
+
+        function countSize(node) {
+            if (node === null) {
+                return;
+            }
+            count++;
+            countSize(node.left);
+            countSize(node.right);
+        }
+        countSize(this.root);
+        return count;
+        }
+
+    isEmpty() {
+        if (this.root == null) {
+            return true;
+        }
+        return false;
+    }
+
+    clear() {
+        this.root = null;
+    }
+    
+}  
+
+    
+    
+
+
+    
+
+
 
 
 // create an object for the BinarySearchTree
 let BST = new BinarySearchTree();
 // Inserting nodes to the BinarySearchTree
-BST.insert(15);
-BST.insert(25);
-BST.insert(10);
-BST.insert(7);
-BST.insert(22);
-BST.insert(17);
-BST.insert(13);
-BST.insert(5);
-BST.insert(9);
-BST.insert(27);
+BST.insert("B");
+BST.insert("R");
+BST.insert("A");
+BST.insert("N");
+BST.insert("C");
+BST.insert("H");
+BST.insert("E");
+BST.insert("S");
+
 
 let root = BST.getRootNode()
 
 console.log("Inorder traversal:")
 BST.inorder(root)
-// console.log("Postorder traversal:")
-// BST.postorder(root)
-// console.log("Preorder traversal:")
-// BST.preorder(root)
+console.log("Postorder traversal:")
+BST.postorder(root)
+console.log("Preorder traversal:")
+BST.preorder(root)
 
-BST.findMinNode(root)
+//BST.findMinNode(root)
 // Search for a num in tree
-BST.search(root, 5)
-BST.remove(5)
+//BST.search(root, "B")
+
+//console.log(BST.getParentOfNode(root, "C"))
+

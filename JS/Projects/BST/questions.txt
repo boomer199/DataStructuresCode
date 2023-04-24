@@ -1,0 +1,63 @@
+--1--, --2--, & --3--
+See BST.js for code
+
+--5--
+
+a) no
+b) A E L O N I Y S C
+c) C A S I E N L O Y
+d) A C E I L N O S Y
+e) C S I N O null
+
+--6--
+
+let BST = new BinarySearchTree();
+// Inserting nodes to the BinarySearchTree
+BST.insert("B");
+BST.insert("R");
+BST.insert("A");
+BST.insert("N");
+BST.insert("C");
+BST.insert("H");
+BST.insert("E");
+BST.insert("S");
+
+Inorder traversal:
+A
+B
+C
+E
+H
+N
+R
+S
+Postorder traversal:
+A
+E
+H
+C
+N
+S
+R
+B
+Preorder traversal:
+B
+A
+R
+N
+C
+H
+E
+S
+
+See BST.js for full code
+
+--7-- 
+The two trees are different. 
+
+Tree 1 Postorder: {2, 3, 7, 11, 5, 23, 19, 13}
+
+Tree 2 Postorder: {2,3,5,7,11,23,19,13}.
+
+--8--
+See BST.js
