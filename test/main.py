@@ -1,6 +1,8 @@
 import requests
 import json
 
+responses = []
+
 def write_json(new_data, filename='data.json'):
     with open(filename,'r+') as file:
           # First we load existing data into a dict.
@@ -40,12 +42,18 @@ def get_id(name, school=None):
 
 
 name = input("Name of athlete: ")
-school = input("Name of school: ")
-year = input("Year of results: ")
+if name == "t":
+  name = "Everett Villiger"
+  school = "Head-Royce"
+  year = "2023"
+else:
+  school = input("Name of school: ")
+  year = input("Year of results: ")
 
 # TODO: Make a year slider!?!?!?
 id = get_id(name, school=school)
 response = requests.get(' https://www.athletic.net/api/v1/General/GetRankings?athleteId={}&sport=TF&seasonId={}&truncate=false'.format(id, year)).json()
+responses.append(response);
 
 if len(response) < 1:
   raise Exception("No data")
@@ -56,7 +64,6 @@ last_event = response[0]["Event"]
 # TODO: Make system to remove dupes in data.json
 
 contains = []
-
 for rank in response:  
   print(contains)
   if rank['Event'] == "800 Meters" and contains.__contains__("800 Meters") == False:
@@ -71,4 +78,5 @@ for rank in response:
     newData = {"name: ": name.lower(), "school: ": school, "year: ": year, "event: ": rank['Event'], "time: ": convert_ms(rank["SortInt"])}
     write_json(newData, "data.json")
     contains.append(rank["Event"])
+ 
 
