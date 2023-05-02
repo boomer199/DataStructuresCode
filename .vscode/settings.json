@@ -1,6 +1,7 @@
 {
     "java.project.sourcePaths": [
+        "Java/Huffman",
         "Java/Finished Projects/CircularLinkedList",
-        "Java/Huffman"
+        "Java/Finished Projects/Huffman"
     ]
 }
